@@ -37,6 +37,7 @@
     "bluebird"
   ],
   "dependencies": {
+    "@sindresorhus/is": "^0.7.0",
     "p-reduce": "^1.0.0"
   },
   "devDependencies": {
