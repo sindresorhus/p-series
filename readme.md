@@ -10,7 +10,7 @@ See [`p-all`](https://github.com/sindresorhus/p-all) for a concurrent counterpar
 ## Install
 
 ```
-$ npm install --save p-series
+$ npm install p-series
 ```
 
 
