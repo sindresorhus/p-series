@@ -1,7 +1,7 @@
 import test from 'ava';
 import pSeries from '.';
 
-test('pSeries', async t => {
+test('main', async t => {
 	const input = [
 		async () => 1 + 1,
 		() => 2 + 2,

@@ -20,15 +20,15 @@ $ npm install p-series
 const pSeries = require('p-series');
 const got = require('got');
 
-const tasks = [
-	() => got('sindresorhus.com'),
-	() => checkSomething(),
-	() => doSomethingElse()
-];
+(async () => {
+	const tasks = [
+		() => got('sindresorhus.com'),
+		() => checkSomething(),
+		() => doSomethingElse()
+	];
 
-pSeries(tasks).then(result => {
-	console.log(result);
-});
+	console.log(await pSeries(tasks));
+})();
 ```
 
 

@@ -1,5 +1,4 @@
 'use strict';
-
 const pReduce = require('p-reduce');
 const is = require('@sindresorhus/is');
 

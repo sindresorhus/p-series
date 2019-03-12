@@ -39,7 +39,7 @@
 	],
 	"dependencies": {
 		"@sindresorhus/is": "^0.15.0",
-		"p-reduce": "^1.0.0"
+		"p-reduce": "^2.0.0"
 	},
 	"devDependencies": {
 		"ava": "^1.3.1",
