@@ -1,21 +1,26 @@
 'use strict';
+
 const pReduce = require('p-reduce');
 const is = require('@sindresorhus/is');
 
-module.exports = iterable => {
-	const ret = [];
+const pSeries = async tasks => {
+	const results = [];
 
-	for (const task of iterable) {
+	for (const task of tasks) {
 		const type = is(task);
 
 		if (type !== 'Function') {
-			return Promise.reject(new TypeError(`Expected task to be a \`Function\`, received \`${type}\``));
+			throw new TypeError(`Expected task to be a \`Function\`, received \`${type}\``);
 		}
 	}
 
-	return pReduce(iterable, (_, fn) => {
-		return Promise.resolve().then(fn).then(val => {
-			ret.push(val);
-		});
-	}).then(() => ret);
+	await pReduce(tasks, async (_, task) => {
+		const value = await task();
+		results.push(value);
+	});
+
+	return results;
 };
+
+module.exports = pSeries;
+module.exports.default = pSeries;
