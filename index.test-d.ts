@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import pSeries from '.';
+import {expectType} from 'tsd';
+import pSeries = require('.');
 
 expectType<Promise<(number | boolean)[]>>(
 	pSeries<number | boolean>([() => Promise.resolve(1), () => true])

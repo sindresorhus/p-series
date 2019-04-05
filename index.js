@@ -22,4 +22,5 @@ const pSeries = async tasks => {
 };
 
 module.exports = pSeries;
+// TODO: Remove this for the next major release
 module.exports.default = pSeries;
