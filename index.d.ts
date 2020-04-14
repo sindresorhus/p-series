@@ -12,7 +12,7 @@ declare const pSeries: {
 
 	(async () => {
 		const tasks = [
-			() => got('sindresorhus.com'),
+			() => got('https://sindresorhus.com'),
 			() => checkSomething(),
 			() => doSomethingElse()
 		];

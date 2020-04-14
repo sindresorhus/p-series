@@ -6,13 +6,11 @@ If you're doing the same work in each function, use [`p-each-series`](https://gi
 
 See [`p-all`](https://github.com/sindresorhus/p-all) for a concurrent counterpart.
 
-
 ## Install
 
 ```
 $ npm install p-series
 ```
-
 
 ## Usage
 
@@ -22,7 +20,7 @@ const got = require('got');
 
 (async () => {
 	const tasks = [
-		() => got('sindresorhus.com'),
+		() => got('https://sindresorhus.com'),
 		() => checkSomething(),
 		() => doSomethingElse()
 	];
@@ -30,7 +28,6 @@ const got = require('got');
 	console.log(await pSeries(tasks));
 })();
 ```
-
 
 ## API
 
@@ -44,15 +41,9 @@ Type: `Iterable<Function>`
 
 Functions are expected to return a value. If a Promise is returned, it's awaited before continuing with the next task.
 
-
 ## Related
 
 - [p-all](https://github.com/sindresorhus/p-all) - Run promise-returning & async functions concurrently with optional limited concurrency
 - [p-waterfall](https://github.com/sindresorhus/p-waterfall) - Run promise-returning & async functions in series, each passing its result to the next
 - [p-each-series](https://github.com/sindresorhus/p-each-series) - Iterate over promises serially
 - [More…](https://github.com/sindresorhus/promise-fun)
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
