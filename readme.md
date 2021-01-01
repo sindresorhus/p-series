@@ -1,4 +1,4 @@
-# p-series [![Build Status](https://travis-ci.org/sindresorhus/p-series.svg?branch=master)](https://travis-ci.org/sindresorhus/p-series)
+# p-series
 
 > Run promise-returning & async functions in series
 
