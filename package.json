@@ -1,6 +1,6 @@
 {
 	"name": "p-series",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"description": "Run promise-returning & async functions in series",
 	"license": "MIT",
 	"repository": "sindresorhus/p-series",
