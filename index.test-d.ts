@@ -1,9 +1,9 @@
 import {expectType} from 'tsd';
-import pSeries = require('.');
+import pSeries from './index.js';
 
-expectType<Promise<(number | boolean)[]>>(
-	pSeries<number | boolean>([() => Promise.resolve(1), () => true])
+expectType<Promise<Array<number | boolean>>>(
+	pSeries<number | boolean>([async () => Promise.resolve(1), () => true]),
 );
-expectType<Promise<(number | boolean)[]>>(
-	pSeries<number | boolean>(new Set([() => Promise.resolve(1), () => true]))
+expectType<Promise<Array<number | boolean>>>(
+	pSeries<number | boolean>(new Set([async () => Promise.resolve(1), () => true])),
 );

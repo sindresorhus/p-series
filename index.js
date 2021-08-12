@@ -1,26 +1,15 @@
-'use strict';
-const pReduce = require('p-reduce');
-const is = require('@sindresorhus/is');
-
-const pSeries = async tasks => {
-	const results = [];
-
+export default async function pSeries(tasks) {
 	for (const task of tasks) {
-		const type = is(task);
-
-		if (type !== 'Function') {
-			throw new TypeError(`Expected task to be a \`Function\`, received \`${type}\``);
+		if (typeof task !== 'function') {
+			throw new TypeError(`Expected task to be a \`Function\`, received \`${typeof task}\``);
 		}
 	}
 
-	await pReduce(tasks, async (_, task) => {
-		const value = await task();
-		results.push(value);
-	});
+	const results = [];
+
+	for (const task of tasks) {
+		results.push(await task()); // eslint-disable-line no-await-in-loop
+	}
 
 	return results;
-};
-
-module.exports = pSeries;
-// TODO: Remove this for the next major release
-module.exports.default = pSeries;
+}

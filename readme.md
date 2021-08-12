@@ -2,6 +2,8 @@
 
 > Run promise-returning & async functions in series
 
+*Note:* You can just use `await` in a for-loop to get the same behavior. This package was useful before async/await existed.
+
 If you're doing the same work in each function, use [`p-each-series`](https://github.com/sindresorhus/p-each-series) instead.
 
 See [`p-all`](https://github.com/sindresorhus/p-all) for a concurrent counterpart.
@@ -15,18 +17,16 @@ $ npm install p-series
 ## Usage
 
 ```js
-const pSeries = require('p-series');
-const got = require('got');
+import pSeries from 'p-series';
+import got from 'got';
 
-(async () => {
-	const tasks = [
-		() => got('https://sindresorhus.com'),
-		() => checkSomething(),
-		() => doSomethingElse()
-	];
+const tasks = [
+	() => got('https://sindresorhus.com'),
+	() => checkSomething(),
+	() => doSomethingElse()
+];
 
-	console.log(await pSeries(tasks));
-})();
+console.log(await pSeries(tasks));
 ```
 
 ## API
